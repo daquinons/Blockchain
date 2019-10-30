@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 flake8 = "*"
 pycodestyle = "*"
+autopep8 = "*"
 
 [packages]
 requests = "==2.18.4"
