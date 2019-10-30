@@ -131,9 +131,9 @@ def mine():
         # Forge the new Block by adding it to the chain
         previous_hash = blockchain.hash(blockchain.last_block)
         block = blockchain.new_block(proof, previous_hash)
-        return jsonify({'message': 'Success! You found a valid proof', 'block': block})
+        return jsonify({'message': 'Success! You found a valid proof', 'block': block, 'proof': proof})
     else:
-        return jsonify({'message': 'Error! Your proof was not valid'})
+        return jsonify({'message': 'Error! Your proof was not valid', 'proof': proof})
 
 
 @app.route('/chain', methods=['GET'])
