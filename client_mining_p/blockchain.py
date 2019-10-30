@@ -106,7 +106,7 @@ class Blockchain(object):
         """
         guess = f'{block_string}{proof}'.encode()
         guess_hash = hashlib.sha256(guess).hexdigest()
-        return guess_hash[:3] == "000"
+        return guess_hash[:6] == "000000"
 
 
 # Instantiate our Node
@@ -143,6 +143,14 @@ def full_chain():
     response = {
         'length': len(blockchain.chain),
         'chain': blockchain.chain,
+    }
+    return jsonify(response), 200
+
+
+@app.route('/last_block', methods=['GET'])
+def last_block():
+    response = {
+        'last_block': blockchain.last_block
     }
     return jsonify(response), 200
 
